@@ -31,9 +31,8 @@ namespace WebStore
                    .MinimumLevel.Debug()
                    .MinimumLevel.Override("Microsoft", LogEventLevel.Error)
                    .Enrich.FromLogContext()
-                   .WriteTo.Console(
-                        outputTemplate: "[{Timestamp:HH:mm:ss.fff} {Level:u3}]{SourceContext}{NewLine}{Message:lj}{NewLine}{Exception}")
-                   .WriteTo.RollingFile($".\\Logs\\WebStore[{DateTime.Now:yyyy-MM-ddTHH-mm-ss}].log")
+                   //.WriteTo.Console(outputTemplate: "[{Timestamp:HH:mm:ss.fff} {Level:u3}]{SourceContext}{NewLine}{Message:lj}{NewLine}{Exception}")
+                   //.WriteTo.RollingFile($".\\Logs\\WebStore[{DateTime.Now:yyyy-MM-ddTHH-mm-ss}].log")
                    .WriteTo.File(new JsonFormatter(",", true), $".\\Logs\\json\\WebStore[{DateTime.Now:yyyy-MM-ddTHH-mm-ss}].log.json")
                    .WriteTo.Seq("http://localhost:5341"));
     }

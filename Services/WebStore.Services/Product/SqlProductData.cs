@@ -49,7 +49,7 @@ namespace WebStore.Services.Product
             return new PagedProductDTO
             {
                 Products = products
-                   .AsEnumerable()
+                   .ToArray()
                    .Select(ProductMapper.ToDTO),
                 TotalCount = total_count
             };

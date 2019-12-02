@@ -15,6 +15,7 @@ using WebStore.DAL.Context;
 using WebStore.Data;
 using WebStore.Domain.Entities;
 using WebStore.Infrastructure.Middleware;
+using WebStore.Infrastructure.Services;
 using WebStore.Interfaces.Api;
 using WebStore.Interfaces.Services;
 using WebStore.Logging;
@@ -35,6 +36,8 @@ namespace WebStore
             services.AddScoped<IOrderService, OrdersClient>();
             services.AddScoped<ICartStore, CookiesCartStore>();
             services.AddScoped<ICartService, CartService>();
+
+            //services.AddHostedService<TestHostedService>();
 
             services.AddScoped<IValuesService, ValuesClient>();
 
